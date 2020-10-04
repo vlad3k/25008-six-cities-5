@@ -112,7 +112,7 @@ const PageMain = ({places}) => {
                     <div className="cities__image-wrapper place-card__image-wrapper">
                       <a href="#">
                         <img className="place-card__image"
-                          src="img/apartment-01.jpg"
+                          src="/img/apartment-01.jpg"
                           width="260"
                           height="200"
                           alt="Place image" />
@@ -151,7 +151,7 @@ const PageMain = ({places}) => {
                     <div className="cities__image-wrapper place-card__image-wrapper">
                       <a href="#">
                         <img className="place-card__image"
-                          src="img/room.jpg"
+                          src="/img/room.jpg"
                           width="260"
                           height="200"
                           alt="Place image" />
@@ -190,7 +190,7 @@ const PageMain = ({places}) => {
                     <div className="cities__image-wrapper place-card__image-wrapper">
                       <a href="#">
                         <img className="place-card__image"
-                          src="img/apartment-02.jpg"
+                          src="/img/apartment-02.jpg"
                           width="260"
                           height="200"
                           alt="Place image" />
@@ -232,7 +232,7 @@ const PageMain = ({places}) => {
                     <div className="cities__image-wrapper place-card__image-wrapper">
                       <a href="#">
                         <img className="place-card__image"
-                          src="img/apartment-03.jpg"
+                          src="/img/apartment-03.jpg"
                           width="260"
                           height="200"
                           alt="Place image" />
@@ -271,7 +271,7 @@ const PageMain = ({places}) => {
                     <div className="cities__image-wrapper place-card__image-wrapper">
                       <a href="#">
                         <img className="place-card__image"
-                          src="img/room.jpg"
+                          src="/img/room.jpg"
                           width="260"
                           height="200"
                           alt="Place image" />

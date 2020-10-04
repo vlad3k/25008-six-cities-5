@@ -31,7 +31,7 @@ const PageRoom = () => {
               <a className="header__logo-link"
                 href="main.html">
                 <img className="header__logo"
-                  src="img/logo.svg"
+                  src="/img/logo.svg"
                   alt="6 cities logo"
                   width="81"
                   height="41" />
@@ -59,32 +59,32 @@ const PageRoom = () => {
             <div className="property__gallery">
               <div className="property__image-wrapper">
                 <img className="property__image"
-                  src="img/room.jpg"
+                  src="/img/room.jpg"
                   alt="Photo studio" />
               </div>
               <div className="property__image-wrapper">
                 <img className="property__image"
-                  src="img/apartment-01.jpg"
+                  src="/img/apartment-01.jpg"
                   alt="Photo studio" />
               </div>
               <div className="property__image-wrapper">
                 <img className="property__image"
-                  src="img/apartment-02.jpg"
+                  src="/img/apartment-02.jpg"
                   alt="Photo studio" />
               </div>
               <div className="property__image-wrapper">
                 <img className="property__image"
-                  src="img/apartment-03.jpg"
+                  src="/img/apartment-03.jpg"
                   alt="Photo studio" />
               </div>
               <div className="property__image-wrapper">
                 <img className="property__image"
-                  src="img/studio-01.jpg"
+                  src="/img/studio-01.jpg"
                   alt="Photo studio" />
               </div>
               <div className="property__image-wrapper">
                 <img className="property__image"
-                  src="img/apartment-01.jpg"
+                  src="/img/apartment-01.jpg"
                   alt="Photo studio" />
               </div>
             </div>
@@ -170,7 +170,7 @@ const PageRoom = () => {
                 <div className="property__host-user user">
                   <div className="property__avatar-wrapper property__avatar-wrapper--pro user__avatar-wrapper">
                     <img className="property__avatar user__avatar"
-                      src="img/avatar-angelina.jpg"
+                      src="/img/avatar-angelina.jpg"
                       width="74"
                       height="74"
                       alt="Host avatar" />
@@ -197,7 +197,7 @@ const PageRoom = () => {
                     <div className="reviews__user user">
                       <div className="reviews__avatar-wrapper user__avatar-wrapper">
                         <img className="reviews__avatar user__avatar"
-                          src="img/avatar-max.jpg"
+                          src="/img/avatar-max.jpg"
                           width="54"
                           height="54"
                           alt="Reviews avatar" />
@@ -332,7 +332,7 @@ const PageRoom = () => {
                 <div className="near-places__image-wrapper place-card__image-wrapper">
                   <a href="#">
                     <img className="place-card__image"
-                      src="img/room.jpg"
+                      src="/img/room.jpg"
                       width="260"
                       height="200"
                       alt="Place image" />
@@ -371,7 +371,7 @@ const PageRoom = () => {
                 <div className="near-places__image-wrapper place-card__image-wrapper">
                   <a href="#">
                     <img className="place-card__image"
-                      src="img/apartment-02.jpg"
+                      src="/img/apartment-02.jpg"
                       width="260"
                       height="200"
                       alt="Place image" />
@@ -410,7 +410,7 @@ const PageRoom = () => {
                 <div className="near-places__image-wrapper place-card__image-wrapper">
                   <a href="#">
                     <img className="place-card__image"
-                      src="img/apartment-03.jpg"
+                      src="/img/apartment-03.jpg"
                       width="260"
                       height="200"
                       alt="Place image" />
