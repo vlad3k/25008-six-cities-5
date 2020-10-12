@@ -6,21 +6,21 @@ import PageFavorites from "../pages/page-favorites/page-favorites";
 import PageLogin from "../pages/page-login/page-login";
 import PageRoom from "../pages/page-room/page-room";
 
-const App = ({places}) => {
+const App = ({offers, reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <PageMain places={places} />
+          <PageMain offers={offers} />
         </Route>
         <Route path="/favorites" exact>
           <PageFavorites />
         </Route>
         <Route path="/login" exact>
-          <PageLogin places={places} />
+          <PageLogin />
         </Route>
         <Route path="/offer/:id?" exact>
-          <PageRoom />
+          <PageRoom offers={offers} reviews={reviews} />
         </Route>
       </Switch>
     </BrowserRouter>
@@ -28,7 +28,8 @@ const App = ({places}) => {
 };
 
 App.propTypes = {
-  places: PropTypes.number.isRequired,
+  offers: PropTypes.array,
+  reviews: PropTypes.array,
 };
 
 export default App;
