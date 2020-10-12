@@ -1,6 +1,10 @@
 import React, {Fragment} from "react";
+import {getRating} from "../../../utils";
+import {HOUSE_TYPES} from "../../../const";
 
-const PageRoom = () => {
+const PageRoom = ({offers, review}) => {
+  const {photos, isPremium, shortDesc, rating, type, countBedrooms, maxGuests} = offers[0];
+
   return (<Fragment>
     <div style={{display: `none`}}>
       <svg xmlns="http://www.w3.org/2000/svg">
@@ -57,46 +61,26 @@ const PageRoom = () => {
         <section className="property">
           <div className="property__gallery-container container">
             <div className="property__gallery">
-              <div className="property__image-wrapper">
-                <img className="property__image"
-                  src="/img/room.jpg"
-                  alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image"
-                  src="/img/apartment-01.jpg"
-                  alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image"
-                  src="/img/apartment-02.jpg"
-                  alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image"
-                  src="/img/apartment-03.jpg"
-                  alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image"
-                  src="/img/studio-01.jpg"
-                  alt="Photo studio" />
-              </div>
-              <div className="property__image-wrapper">
-                <img className="property__image"
-                  src="/img/apartment-01.jpg"
-                  alt="Photo studio" />
-              </div>
+              {photos.map((photo, i) => (
+                <div key={i} className="property__image-wrapper">
+                  <img className="property__image"
+                    src={photo}
+                    alt="Photo studio" />
+                </div>
+              ))}
             </div>
           </div>
           <div className="property__container container">
             <div className="property__wrapper">
-              <div className="property__mark">
-                <span>Premium</span>
-              </div>
+              {
+                isPremium &&
+                `<div className="property__mark">
+                  <span>Premium</span>
+                </div>`
+              }
               <div className="property__name-wrapper">
                 <h1 className="property__name">
-                  Beautiful &amp; luxurious studio at great location
+                  {shortDesc}
                 </h1>
                 <button className="property__bookmark-button button"
                   type="button">
@@ -110,20 +94,20 @@ const PageRoom = () => {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: `80%`}}></span>
+                  <span style={{width: `${getRating(rating)}%`}}></span>
                   <span className="visually-hidden">Rating</span>
                 </div>
                 <span className="property__rating-value rating__value">4.8</span>
               </div>
               <ul className="property__features">
                 <li className="property__feature property__feature--entire">
-                  Apartment
+                  {HOUSE_TYPES[type]}
                 </li>
                 <li className="property__feature property__feature--bedrooms">
-                  3 Bedrooms
+                  {countBedrooms} Bedrooms
                 </li>
                 <li className="property__feature property__feature--adults">
-                  Max 4 adults
+                  Max {maxGuests} adults
                 </li>
               </ul>
               <div className="property__price">
