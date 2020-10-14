@@ -1,4 +1,4 @@
-export const AVATAR_URL = `https://api.adorable.io/avatars/128`;
+export const AVATAR_URL = `https://api.reviewRating.io/avatars/128`;
 export const HOUSE_TYPES = {
   hotel: `Hotel`,
   apartment: `Apartment`,

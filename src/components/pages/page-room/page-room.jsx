@@ -1,9 +1,12 @@
 import React, {Fragment} from "react";
+import PropTypes from "prop-types";
+import {OFFER} from "../../../prop-types";
 import {getRating} from "../../../utils";
 import {HOUSE_TYPES} from "../../../const";
+import {reviews} from "../../../mocks/reviews";
 
-const PageRoom = ({offers, review}) => {
-  const {photos, isPremium, shortDesc, rating, type, countBedrooms, maxGuests} = offers[0];
+const PageRoom = ({offer}) => {
+  const {photos, isPremium, shortDesc, rating, type, countBedrooms, maxGuests, conditions} = offer;
 
   return (<Fragment>
     <div style={{display: `none`}}>
@@ -12,17 +15,17 @@ const PageRoom = ({offers, review}) => {
           viewBox="0 0 7 4">
           <path fillRule="evenodd"
             clipRule="evenodd"
-            d="M0 0l3.5 2.813L7 0v1.084L3.5 4 0 1.084V0z"></path>
+            d="M0 0l3.5 2.813L7 0v1.084L3.5 4 0 1.084V0z" />
         </symbol>
         <symbol id="icon-bookmark"
           viewBox="0 0 17 18">
-          <path d="M3.993 2.185l.017-.092V2c0-.554.449-1 .99-1h10c.522 0 .957.41.997.923l-2.736 14.59-4.814-2.407-.39-.195-.408.153L1.31 16.44 3.993 2.185z"></path>
+          <path d="M3.993 2.185l.017-.092V2c0-.554.449-1 .99-1h10c.522 0 .957.41.997.923l-2.736 14.59-4.814-2.407-.39-.195-.408.153L1.31 16.44 3.993 2.185z" />
         </symbol>
         <symbol id="icon-star"
           viewBox="0 0 13 12">
           <path fillRule="evenodd"
             clipRule="evenodd"
-            d="M6.5 9.644L10.517 12 9.451 7.56 13 4.573l-4.674-.386L6.5 0 4.673 4.187 0 4.573 3.549 7.56 2.483 12 6.5 9.644z"></path>
+            d="M6.5 9.644L10.517 12 9.451 7.56 13 4.573l-4.674-.386L6.5 0 4.673 4.187 0 4.573 3.549 7.56 2.483 12 6.5 9.644z" />
         </symbol>
       </svg>
     </div>
@@ -74,30 +77,30 @@ const PageRoom = ({offers, review}) => {
             <div className="property__wrapper">
               {
                 isPremium &&
-                `<div className="property__mark">
+                <div className="property__mark">
                   <span>Premium</span>
-                </div>`
+                </div>
               }
               <div className="property__name-wrapper">
                 <h1 className="property__name">
                   {shortDesc}
                 </h1>
-                <button className="property__bookmark-button button"
+                <button className="property__bookmark-button button  place-card__bookmark-button--active"
                   type="button">
                   <svg className="property__bookmark-icon"
                     width="31"
                     height="33">
-                    <use xlinkHref="#icon-bookmark"></use>
+                    <use xlinkHref="#icon-bookmark" />
                   </svg>
                   <span className="visually-hidden">To bookmarks</span>
                 </button>
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: `${getRating(rating)}%`}}></span>
+                  <span style={{width: `${getRating(rating)}%`}} />
                   <span className="visually-hidden">Rating</span>
                 </div>
-                <span className="property__rating-value rating__value">4.8</span>
+                <span className="property__rating-value rating__value">{rating}</span>
               </div>
               <ul className="property__features">
                 <li className="property__feature property__feature--entire">
@@ -117,36 +120,15 @@ const PageRoom = ({offers, review}) => {
               <div className="property__inside">
                 <h2 className="property__inside-title">What&apos;s inside</h2>
                 <ul className="property__inside-list">
-                  <li className="property__inside-item">
-                    Wi-Fi
-                  </li>
-                  <li className="property__inside-item">
-                    Washing machine
-                  </li>
-                  <li className="property__inside-item">
-                    Towels
-                  </li>
-                  <li className="property__inside-item">
-                    Heating
-                  </li>
-                  <li className="property__inside-item">
-                    Coffee machine
-                  </li>
-                  <li className="property__inside-item">
-                    Baby seat
-                  </li>
-                  <li className="property__inside-item">
-                    Kitchen
-                  </li>
-                  <li className="property__inside-item">
-                    Dishwasher
-                  </li>
-                  <li className="property__inside-item">
-                    Cabel TV
-                  </li>
-                  <li className="property__inside-item">
-                    Fridge
-                  </li>
+                  {
+                    conditions.map((advant, i) => {
+                      return (
+                        <li className="property__inside-item" key={i}>
+                          {advant}
+                        </li>
+                      );
+                    })
+                  }
                 </ul>
               </div>
               <div className="property__host">
@@ -175,37 +157,44 @@ const PageRoom = ({offers, review}) => {
                 </div>
               </div>
               <section className="property__reviews reviews">
-                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
+                <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
                 <ul className="reviews__list">
-                  <li className="reviews__item">
-                    <div className="reviews__user user">
-                      <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                        <img className="reviews__avatar user__avatar"
-                          src="/img/avatar-max.jpg"
-                          width="54"
-                          height="54"
-                          alt="Reviews avatar" />
-                      </div>
-                      <span className="reviews__user-name">
-                        Max
-                      </span>
-                    </div>
-                    <div className="reviews__info">
-                      <div className="reviews__rating rating">
-                        <div className="reviews__stars rating__stars">
-                          <span style={{width: `80%`}}></span>
-                          <span className="visually-hidden">Rating</span>
-                        </div>
-                      </div>
-                      <p className="reviews__text">
-                        A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.
-                        The building is green and from 18th century.
-                      </p>
-                      <time className="reviews__time"
-                        dateTime="2019-04-24">April 2019
-                      </time>
-                    </div>
-                  </li>
+                  {
+                    reviews.map((review, i) => {
+                      const {avatar, name, rating: reviewRating, date, text} = review;
+                      return (
+                        <li className="reviews__item" key={i}>
+                          <div className="reviews__user user">
+                            <div className="reviews__avatar-wrapper user__avatar-wrapper">
+                              <img className="reviews__avatar user__avatar"
+                                src={avatar}
+                                width="54"
+                                height="54"
+                                alt="Reviews avatar" />
+                            </div>
+                            <span className="reviews__user-name">
+                              {name}
+                            </span>
+                          </div>
+                          <div className="reviews__info">
+                            <div className="reviews__rating rating">
+                              <div className="reviews__stars rating__stars">
+                                <span style={{width: `${getRating(reviewRating)}%`}} />
+                                <span className="visually-hidden">Rating</span>
+                              </div>
+                            </div>
+                            <p className="reviews__text">
+                              {text}
+                            </p>
+                            <time className="reviews__time"
+                              dateTime="2019-04-24">
+                              {date}
+                            </time>
+                          </div>
+                        </li>
+                      );
+                    })
+                  }
                 </ul>
                 <form className="reviews__form form"
                   action="#"
@@ -224,7 +213,7 @@ const PageRoom = ({offers, review}) => {
                       <svg className="form__star-image"
                         width="37"
                         height="33">
-                        <use xlinkHref="#icon-star"></use>
+                        <use xlinkHref="#icon-star" />
                       </svg>
                     </label>
 
@@ -239,7 +228,7 @@ const PageRoom = ({offers, review}) => {
                       <svg className="form__star-image"
                         width="37"
                         height="33">
-                        <use xlinkHref="#icon-star"></use>
+                        <use xlinkHref="#icon-star" />
                       </svg>
                     </label>
 
@@ -254,7 +243,7 @@ const PageRoom = ({offers, review}) => {
                       <svg className="form__star-image"
                         width="37"
                         height="33">
-                        <use xlinkHref="#icon-star"></use>
+                        <use xlinkHref="#icon-star" />
                       </svg>
                     </label>
 
@@ -269,7 +258,7 @@ const PageRoom = ({offers, review}) => {
                       <svg className="form__star-image"
                         width="37"
                         height="33">
-                        <use xlinkHref="#icon-star"></use>
+                        <use xlinkHref="#icon-star" />
                       </svg>
                     </label>
 
@@ -284,14 +273,14 @@ const PageRoom = ({offers, review}) => {
                       <svg className="form__star-image"
                         width="37"
                         height="33">
-                        <use xlinkHref="#icon-star"></use>
+                        <use xlinkHref="#icon-star" />
                       </svg>
                     </label>
                   </div>
                   <textarea className="reviews__textarea form__textarea"
                     id="review"
                     name="review"
-                    placeholder="Tell how was your stay, what you like and what can be improved"></textarea>
+                    placeholder="Tell how was your stay, what you like and what can be improved" />
                   <div className="reviews__button-wrapper">
                     <p className="reviews__help">
                       To submit review please make sure to set <span className="reviews__star">rating</span> and
@@ -333,14 +322,14 @@ const PageRoom = ({offers, review}) => {
                       <svg className="place-card__bookmark-icon"
                         width="18"
                         height="19">
-                        <use xlinkHref="#icon-bookmark"></use>
+                        <use xlinkHref="#icon-bookmark" />
                       </svg>
                       <span className="visually-hidden">In bookmarks</span>
                     </button>
                   </div>
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
-                      <span style={{width: `80%`}}></span>
+                      <span style={{width: `80%`}} />
                       <span className="visually-hidden">Rating</span>
                     </div>
                   </div>
@@ -372,14 +361,14 @@ const PageRoom = ({offers, review}) => {
                       <svg className="place-card__bookmark-icon"
                         width="18"
                         height="19">
-                        <use xlinkHref="#icon-bookmark"></use>
+                        <use xlinkHref="#icon-bookmark" />
                       </svg>
                       <span className="visually-hidden">To bookmarks</span>
                     </button>
                   </div>
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
-                      <span style={{width: `80%`}}></span>
+                      <span style={{width: `80%`}} />
                       <span className="visually-hidden">Rating</span>
                     </div>
                   </div>
@@ -411,14 +400,14 @@ const PageRoom = ({offers, review}) => {
                       <svg className="place-card__bookmark-icon"
                         width="18"
                         height="19">
-                        <use xlinkHref="#icon-bookmark"></use>
+                        <use xlinkHref="#icon-bookmark" />
                       </svg>
                       <span className="visually-hidden">To bookmarks</span>
                     </button>
                   </div>
                   <div className="place-card__rating rating">
                     <div className="place-card__stars rating__stars">
-                      <span style={{width: `100%`}}></span>
+                      <span style={{width: `100%`}} />
                       <span className="visually-hidden">Rating</span>
                     </div>
                   </div>
@@ -438,3 +427,9 @@ const PageRoom = ({offers, review}) => {
 };
 
 export default PageRoom;
+
+PageRoom.propTypes = {
+  offer: PropTypes.arrayOf(
+      PropTypes.shape(OFFER)
+  )
+};

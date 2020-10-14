@@ -14,14 +14,16 @@ const App = ({offers, reviews}) => {
           <PageMain offers={offers} />
         </Route>
         <Route path="/favorites" exact>
-          <PageFavorites />
+          <PageFavorites offers={offers} />
         </Route>
         <Route path="/login" exact>
           <PageLogin />
         </Route>
-        <Route path="/offer/:id?" exact>
-          <PageRoom offers={offers} reviews={reviews} />
-        </Route>
+        <Route path="/offer/:id" render={({match}) => {
+          const currentOffer = offers.find((offer, id) => (id + 1) === +match.params.id);
+          return <PageRoom offer={currentOffer} reviews={reviews}/>;
+        }} exact />
+        {/* <PageRoom offers={offers} reviews={reviews} /> */}
       </Switch>
     </BrowserRouter>
   );
