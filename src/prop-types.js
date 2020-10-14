@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 export const OFFER = {
+  id: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,

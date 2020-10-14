@@ -1,5 +1,6 @@
 import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom";
 import {HOUSE_TYPES} from "../../const";
 import {OFFER} from "../../prop-types";
 import {getRating} from "../../utils";
@@ -11,7 +12,7 @@ class PlaceCard extends PureComponent {
   }
 
   render() {
-    const {isPremium, photos, price, shortDesc, type, rating, isFavorite} = this.props.offer;
+    const {id, isPremium, photos, price, shortDesc, type, rating, isFavorite} = this.props.offer;
     return (
       <article className="cities__place-card place-card" onMouseEnter={this.props.onHover}>
         {
@@ -21,9 +22,9 @@ class PlaceCard extends PureComponent {
           </div>
         }
         <div className="cities__image-wrapper place-card__image-wrapper">
-          <a href="#">
+          <Link to={`/offer/${id}`}>
             <img className="place-card__image" src={photos[0]} width="260" height="200" alt="Place image" />
-          </a>
+          </Link>
         </div>
         <div className="place-card__info">
           <div className="place-card__price-wrapper">
@@ -45,7 +46,7 @@ class PlaceCard extends PureComponent {
             </div>
           </div>
           <h2 className="place-card__name">
-            <a href="#">{shortDesc}</a>
+            <Link to={`/offer/${id}`}>{shortDesc}</Link>
           </h2>
           <p className="place-card__type">{HOUSE_TYPES[type]}</p>
         </div>

@@ -2,6 +2,7 @@ import {AVATAR_URL} from "../const";
 
 export const offers = [
   {
+    id: 1,
     type: `hotel`,
     city: `Paris`,
     rating: 2,
@@ -28,6 +29,7 @@ export const offers = [
     }
   },
   {
+    id: 2,
     type: `apartment`,
     city: `Cologne`,
     rating: 3,
@@ -53,6 +55,7 @@ export const offers = [
     }
   },
   {
+    id: 3,
     type: `house`,
     city: `Cologne`,
     rating: 4,
@@ -78,6 +81,7 @@ export const offers = [
     }
   },
   {
+    id: 4,
     type: `room`,
     city: `Brussels`,
     rating: 5,
