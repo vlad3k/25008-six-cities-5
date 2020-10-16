@@ -6,29 +6,32 @@ import PageFavorites from "../pages/page-favorites/page-favorites";
 import PageLogin from "../pages/page-login/page-login";
 import PageRoom from "../pages/page-room/page-room";
 
-const App = ({places}) => {
+const App = ({offers, reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <PageMain places={places} />
+          <PageMain offers={offers} />
         </Route>
         <Route path="/favorites" exact>
-          <PageFavorites />
+          <PageFavorites offers={offers} />
         </Route>
         <Route path="/login" exact>
-          <PageLogin places={places} />
+          <PageLogin />
         </Route>
-        <Route path="/offer/:id?" exact>
-          <PageRoom />
-        </Route>
+        <Route path="/offer/:id" render={({match}) => {
+          const currentOffer = offers.find((offer, id) => (id + 1) === +match.params.id);
+          return <PageRoom offer={currentOffer} reviews={reviews}/>;
+        }} exact />
+        {/* <PageRoom offers={offers} reviews={reviews} /> */}
       </Switch>
     </BrowserRouter>
   );
 };
 
 App.propTypes = {
-  places: PropTypes.number.isRequired,
+  offers: PropTypes.array,
+  reviews: PropTypes.array,
 };
 
 export default App;
