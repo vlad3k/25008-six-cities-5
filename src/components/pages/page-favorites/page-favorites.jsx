@@ -68,9 +68,7 @@ const PageFavorites = ({offers}) => {
 };
 
 PageFavorites.propTypes = {
-  offers: PropTypes.arrayOf(
-      PropTypes.shape(OFFER)
-  ),
+  offers: PropTypes.arrayOf(OFFER),
 };
 
 export default PageFavorites;

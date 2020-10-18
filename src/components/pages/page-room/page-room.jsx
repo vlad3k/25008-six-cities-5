@@ -1,5 +1,4 @@
 import React, {Fragment} from "react";
-import PropTypes from "prop-types";
 import {OFFER} from "../../../prop-types";
 import {getRating} from "../../../utils";
 import {HOUSE_TYPES} from "../../../const";
@@ -335,5 +334,5 @@ const PageRoom = ({offer}) => {
 export default PageRoom;
 
 PageRoom.propTypes = {
-  offer: PropTypes.shape(OFFER)
+  offer: OFFER
 };
