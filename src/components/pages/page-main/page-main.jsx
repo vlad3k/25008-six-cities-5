@@ -2,6 +2,7 @@ import React, {Fragment} from "react";
 import PropTypes from "prop-types";
 import AppHeader from "../../app-header/app-header";
 import ListCards from "../../list-cards/list-cards";
+import Map from "../../map/Map";
 
 const PageMain = ({offers}) => {
   return (
@@ -110,7 +111,9 @@ const PageMain = ({offers}) => {
                 </div>
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map"></section>
+                <section className="cities__map map">
+                  <Map />
+                </section>
               </div>
             </div>
           </div>
