@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import {OFFER} from "../../prop-types";
 import FavoriteCard from "../favorite-card/favorite-card";
 
 const FavoriteListCards = ({offers}) => {
@@ -6,3 +8,7 @@ const FavoriteListCards = ({offers}) => {
 };
 
 export default FavoriteListCards;
+
+FavoriteListCards.propTypes = {
+  offers: PropTypes.arrayOf(OFFER),
+};

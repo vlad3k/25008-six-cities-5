@@ -3,8 +3,9 @@ import {AVATAR_URL} from "../const";
 export const offers = [
   {
     id: 1,
+    coords: [52.3909553943508, 4.85309666406198],
     type: `hotel`,
-    city: `Paris`,
+    city: `Amsterdam`,
     rating: 2,
     price: 119,
     isPremium: false,
@@ -30,8 +31,9 @@ export const offers = [
   },
   {
     id: 2,
+    coords: [52.369553943508, 4.85309666406198],
     type: `apartment`,
-    city: `Cologne`,
+    city: `Amsterdam`,
     rating: 3,
     price: 48,
     isPremium: true,
@@ -56,6 +58,7 @@ export const offers = [
   },
   {
     id: 3,
+    coords: [52.3909553943508, 4.929309666406198],
     type: `house`,
     city: `Cologne`,
     rating: 4,
@@ -82,6 +85,7 @@ export const offers = [
   },
   {
     id: 4,
+    coords: [52.3809553943508, 4.939309666406198],
     type: `room`,
     city: `Brussels`,
     rating: 5,

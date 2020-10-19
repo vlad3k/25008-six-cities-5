@@ -57,7 +57,7 @@ class PlaceCard extends PureComponent {
 
 PlaceCard.propTypes = {
   onHover: PropTypes.func,
-  offer: PropTypes.shape(OFFER)
+  offer: OFFER
 };
 
 export default PlaceCard;

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
+import {OFFER, REVIEW} from "../../prop-types";
 import PageMain from "../pages/page-main/page-main";
 import PageFavorites from "../pages/page-favorites/page-favorites";
 import PageLogin from "../pages/page-login/page-login";
@@ -30,8 +31,8 @@ const App = ({offers, reviews}) => {
 };
 
 App.propTypes = {
-  offers: PropTypes.array,
-  reviews: PropTypes.array,
+  offers: PropTypes.arrayOf(OFFER),
+  reviews: PropTypes.arrayOf(REVIEW),
 };
 
 export default App;

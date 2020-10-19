@@ -1,7 +1,9 @@
 import React, {Fragment} from "react";
 import PropTypes from "prop-types";
+import {OFFER} from "../../../prop-types";
 import AppHeader from "../../app-header/app-header";
 import ListCards from "../../list-cards/list-cards";
+import Map from "../../map/map";
 
 const PageMain = ({offers}) => {
   return (
@@ -110,7 +112,9 @@ const PageMain = ({offers}) => {
                 </div>
               </section>
               <div className="cities__right-section">
-                <section className="cities__map map"></section>
+                <section className="cities__map map">
+                  <Map offers={offers} />
+                </section>
               </div>
             </div>
           </div>
@@ -121,7 +125,7 @@ const PageMain = ({offers}) => {
 };
 
 PageMain.propTypes = {
-  offers: PropTypes.array,
+  offers: PropTypes.arrayOf(OFFER)
 };
 
 export default PageMain;

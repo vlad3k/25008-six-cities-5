@@ -1,5 +1,4 @@
 import React, {PureComponent} from "react";
-import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {OFFER} from "../../prop-types";
 import {getRating} from "../../utils";
@@ -56,7 +55,7 @@ class FavoriteCard extends PureComponent {
 }
 
 FavoriteCard.propTypes = {
-  offer: PropTypes.shape(OFFER),
+  offer: OFFER,
 };
 
 export default FavoriteCard;

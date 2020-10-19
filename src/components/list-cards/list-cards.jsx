@@ -29,9 +29,7 @@ class ListCards extends PureComponent {
 }
 
 ListCards.propTypes = {
-  offers: PropTypes.arrayOf(
-      PropTypes.shape(OFFER)
-  ),
+  offers: PropTypes.arrayOf(OFFER),
 };
 
 export default ListCards;
