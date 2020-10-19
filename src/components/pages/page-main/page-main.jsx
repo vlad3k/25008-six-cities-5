@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {OFFER} from "../../../prop-types";
 import AppHeader from "../../app-header/app-header";
 import ListCards from "../../list-cards/list-cards";
-import Map from "../../map/Map";
+import Map from "../../map/map";
 
 const PageMain = ({offers}) => {
   return (
