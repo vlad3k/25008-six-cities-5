@@ -1,35 +1,22 @@
-import React, {PureComponent} from "react";
+import React from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import PlaceCard from "../place-card/place-card";
 import {OFFER} from "../../prop-types";
 
-class ListCards extends PureComponent {
+const ListCards = ({currentOffers}) => {
+  return currentOffers.map((offer, i) => (
+    <PlaceCard offer={offer}
+      key={i} />)
+  );
+};
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      activeOffer: null,
-    };
-
-    this.handleCardHover = this.handleCardHover.bind(this);
-  }
-
-  handleCardHover(offer) {
-    this.setState({activeOffer: offer});
-  }
-
-  render() {
-    return this.props.offers.map((offer, i) => (
-      <PlaceCard offer={offer}
-        onHover={()=>this.handleCardHover(offer)}
-        key={i} />)
-    );
-  }
-}
+const mapStateToProps = (state) => ({
+  currentOffers: state.currentOffers
+});
 
 ListCards.propTypes = {
   offers: PropTypes.arrayOf(OFFER),
 };
 
-export default ListCards;
+export default connect(mapStateToProps)(ListCards);

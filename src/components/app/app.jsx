@@ -24,7 +24,6 @@ const App = ({offers, reviews}) => {
           const currentOffer = offers.find((offer, id) => (id + 1) === +match.params.id);
           return <PageRoom offer={currentOffer} reviews={reviews}/>;
         }} exact />
-        {/* <PageRoom offers={offers} reviews={reviews} /> */}
       </Switch>
     </BrowserRouter>
   );

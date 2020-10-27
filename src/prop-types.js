@@ -21,10 +21,10 @@ export const OFFER = PropTypes.shape({
   }),
 });
 
-export const REVIEW = {
+export const REVIEW = PropTypes.shape({
   avatar: PropTypes.string,
   name: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
-  date: PropTypes.instanceOf(Date).isRequired,
+  date: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-};
+});
